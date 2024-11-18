@@ -1,6 +1,4 @@
 <h1 align="center">
-<img src="https://i.ibb.co/zHdrSN5/image-removebg-preview.png">
-
   Projet de NSI N°2 : Fnaf
 
   <img src="http://ForTheBadge.com/images/badges/built-with-swag.svg">
