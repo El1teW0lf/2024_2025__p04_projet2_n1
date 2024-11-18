@@ -1,0 +1,582 @@
+[
+  {
+    "model_path": "assets/2_Drawer_Filing_Cabinet/model.fbx",
+    "texture_path": "assets/2_Drawer_Filing_Cabinet/texture.jpg",
+    "position": [
+      -2.3526134490966797,
+      0.7032774686813354,
+      0.5103081464767456
+    ],
+    "size": [
+      0.47432219982147217,
+      0.3843536376953125,
+      0.7198221683502197
+    ],
+    "orientation": [
+      -2.821299744937278e-07,
+      -4.019436625440735e-14,
+      -4.7683710135970614e-07
+    ],
+    "name": "2_Drawer_Filing_Cabinet"
+  },
+  {
+    "model_path": "assets/4_Drawer_Filing_Cabinet/model.fbx",
+    "texture_path": "assets/4_Drawer_Filing_Cabinet/texture.jpg",
+    "position": [
+      -2.2880754470825195,
+      0.29711484909057617,
+      0.6489043235778809
+    ],
+    "size": [
+      0.47821110486984253,
+      0.3843536972999573,
+      1.1340365409851074
+    ],
+    "orientation": [
+      -1.6292067073209182e-07,
+      -2.0097186515335465e-14,
+      3.576279254957626e-07
+    ],
+    "name": "4_Drawer_Filing_Cabinet"
+  },
+  {
+    "model_path": "assets/Binders/model.fbx",
+    "texture_path": "assets/Binders/texture.jpg",
+    "position": [
+      -2.3078765869140625,
+      0.391384094953537,
+      1.37526273727417
+    ],
+    "size": [
+      0.173086017370224,
+      0.16267189383506775,
+      0.21896351873874664
+    ],
+    "orientation": [
+      -2.8212994607201836e-07,
+      0.0,
+      0.0
+    ],
+    "name": "Binders"
+  },
+  {
+    "model_path": "assets/Bottle/model.fbx",
+    "texture_path": "assets/Bottle/texture.jpg",
+    "position": [
+      -0.9245110750198364,
+      0.16084115207195282,
+      1.3381372690200806
+    ],
+    "size": [
+      0.07870063185691833,
+      0.05133979022502899,
+      0.2248965948820114
+    ],
+    "orientation": [
+      -1.6292071336465597e-07,
+      -1.8422983543439977e-15,
+      1.570796251296997
+    ],
+    "name": "Bottle"
+  },
+  {
+    "model_path": "assets/Carpetimg/model.fbx",
+    "texture_path": "assets/Carpetimg/texture.jpg",
+    "position": [
+      -1.4429869651794434,
+      1.2246910333633423,
+      0.14213421940803528
+    ],
+    "size": [
+      2.5842435359954834,
+      2.4381706714630127,
+      0.0
+    ],
+    "orientation": [
+      -2.8212994607201836e-07,
+      0.0,
+      0.0
+    ],
+    "name": "Carpetimg"
+  },
+  {
+    "model_path": "assets/Chair/model.fbx",
+    "texture_path": "assets/Chair/texture.jpg",
+    "position": [
+      -1.2343776226043701,
+      1.4077893495559692,
+      0.43319010734558105
+    ],
+    "size": [
+      1.1756396293640137,
+      0.8193536996841431,
+      0.6578282117843628
+    ],
+    "orientation": [
+      -1.2448248863220215,
+      -1.2951524257659912,
+      -1.1713157892227173
+    ],
+    "name": "Chair"
+  },
+  {
+    "model_path": "assets/Coffee_Cup/model.fbx",
+    "texture_path": "assets/Coffee_Cup/texture.jpg",
+    "position": [
+      -0.8119409084320068,
+      1.0875968933105469,
+      0.9375000596046448
+    ],
+    "size": [
+      0.08774353563785553,
+      0.11564771831035614,
+      0.09000002592802048
+    ],
+    "orientation": [
+      -2.821299744937278e-07,
+      0.0,
+      0.0
+    ],
+    "name": "Coffee_Cup"
+  },
+  {
+    "model_path": "assets/Computer_Monitor/model.fbx",
+    "texture_path": "assets/Computer_Monitor/texture.jpg",
+    "position": [
+      -0.5561059713363647,
+      1.44755220413208,
+      1.0696934461593628
+    ],
+    "size": [
+      0.44711244106292725,
+      0.4738108515739441,
+      0.5215694904327393
+    ],
+    "orientation": [
+      -2.821300029154372e-07,
+      6.680818565030222e-09,
+      3.0444624423980713
+    ],
+    "name": "Computer_Monitor"
+  },
+  {
+    "model_path": "assets/Corkboard/model.fbx",
+    "texture_path": "assets/Corkboard/texture.jpg",
+    "position": [
+      -2.611072540283203,
+      1.2980302572250366,
+      1.3505514860153198
+    ],
+    "size": [
+      0.831468403339386,
+      0.018102571368217468,
+      0.5390446186065674
+    ],
+    "orientation": [
+      -1.6292071336465597e-07,
+      5.024295781800919e-15,
+      1.5707964897155762
+    ],
+    "name": "Corkboard"
+  },
+  {
+    "model_path": "assets/Cubicle/model.fbx",
+    "texture_path": "assets/Cubicle/texture.jpg",
+    "position": [
+      -1.2508748769760132,
+      1.465110421180725,
+      1.5658289194107056
+    ],
+    "size": [
+      2.4117140769958496,
+      2.4419608116149902,
+      2.3000001907348633
+    ],
+    "orientation": [
+      -1.6292071336465597e-07,
+      5.024295781800919e-15,
+      1.5707964897155762
+    ],
+    "name": "Cubicle"
+  },
+  {
+    "model_path": "assets/Cubicle_Desk/model.fbx",
+    "texture_path": "assets/Cubicle_Desk/texture.jpg",
+    "position": [
+      -1.1717345714569092,
+      1.7528685331344604,
+      0.6501648426055908
+    ],
+    "size": [
+      2.2800002098083496,
+      1.4000000953674316,
+      0.7476108074188232
+    ],
+    "orientation": [
+      -2.821299744937278e-07,
+      -1.5072883533754494e-14,
+      -1.1920926112907182e-07
+    ],
+    "name": "Cubicle_Desk"
+  },
+  {
+    "model_path": "assets/Drawer/model.fbx",
+    "texture_path": "assets/Drawer/texture.jpg",
+    "position": [
+      -2.0830421447753906,
+      0.29691147804260254,
+      0.5561459064483643
+    ],
+    "size": [
+      0.14912617206573486,
+      0.3567411005496979,
+      0.2699706554412842
+    ],
+    "orientation": [
+      -1.6292067073209182e-07,
+      -2.0097186515335465e-14,
+      3.576279254957626e-07
+    ],
+    "name": "Drawer"
+  },
+  {
+    "model_path": "assets/Keyboard/model.fbx",
+    "texture_path": "assets/Keyboard/texture.jpg",
+    "position": [
+      -0.8994776010513306,
+      1.6592472791671753,
+      0.9140965938568115
+    ],
+    "size": [
+      0.5134074091911316,
+      0.1913885623216629,
+      0.03160971775650978
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      -0.9946966171264648
+    ],
+    "name": "Keyboard"
+  },
+  {
+    "model_path": "assets/Metal_Gear_Rex_Blueprints/model.fbx",
+    "texture_path": "assets/Metal_Gear_Rex_Blueprints/texture.jpg",
+    "position": [
+      -0.7613174915313721,
+      -0.7803041934967041,
+      0.7481977939605713
+    ],
+    "size": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "orientation": [
+      -3.141592264175415,
+      1.3733186578223939e-14,
+      1.5707961320877075
+    ],
+    "name": "Metal_Gear_Rex_Blueprints"
+  },
+  {
+    "model_path": "assets/mouse/model.fbx",
+    "texture_path": "assets/mouse/texture.jpg",
+    "position": [
+      -0.8296759128570557,
+      1.2989258766174316,
+      0.9028893709182739
+    ],
+    "size": [
+      0.10669340193271637,
+      0.06096486747264862,
+      0.02183198370039463
+    ],
+    "orientation": [
+      0.0,
+      -0.0,
+      3.1415927410125732
+    ],
+    "name": "mouse"
+  },
+  {
+    "model_path": "assets/Panasonic_VHS_TV/model.fbx",
+    "texture_path": "assets/Panasonic_VHS_TV/texture.jpg",
+    "position": [
+      -0.8593120574951172,
+      2.053849697113037,
+      1.180497646331787
+    ],
+    "size": [
+      0.4383280277252197,
+      0.49400007724761963,
+      0.49399998784065247
+    ],
+    "orientation": [
+      -2.823601334966952e-07,
+      -2.5299673467316097e-08,
+      -2.131396532058716
+    ],
+    "name": "Panasonic_VHS_TV"
+  },
+  {
+    "model_path": "assets/PC_Tower/model.fbx",
+    "texture_path": "assets/PC_Tower/texture.jpg",
+    "position": [
+      -1.3586333990097046,
+      2.0757505893707275,
+      1.098884105682373
+    ],
+    "size": [
+      0.4799998998641968,
+      0.20719993114471436,
+      0.44999992847442627
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      1.5707963705062866
+    ],
+    "name": "PC_Tower"
+  },
+  {
+    "model_path": "assets/Pinned_Notes/model.fbx",
+    "texture_path": "assets/Pinned_Notes/texture.jpg",
+    "position": [
+      -2.9233949184417725,
+      0.3023011088371277,
+      0.8424596786499023
+    ],
+    "size": [
+      0.3786618709564209,
+      0.0016534964088350534,
+      0.3317294120788574
+    ],
+    "orientation": [
+      -1.6292072757551068e-07,
+      -0.0,
+      1.5707964897155762
+    ],
+    "name": "Pinned_Notes"
+  },
+  {
+    "model_path": "assets/Potted_Plant/model.fbx",
+    "texture_path": "assets/Potted_Plant/texture.jpg",
+    "position": [
+      -2.3030967712402344,
+      0.7004606127738953,
+      1.1270012855529785
+    ],
+    "size": [
+      0.46966904401779175,
+      0.483250230550766,
+      0.4299694001674652
+    ],
+    "orientation": [
+      -5.330515051582552e-08,
+      -2.0573901693410335e-08,
+      0.43633225560188293
+    ],
+    "name": "Potted_Plant"
+  },
+  {
+    "model_path": "assets/Shelf/model.fbx",
+    "texture_path": "assets/Shelf/texture.jpg",
+    "position": [
+      -1.273308277130127,
+      0.1666237711906433,
+      1.1748552322387695
+    ],
+    "size": [
+      0.2352534979581833,
+      0.8893362879753113,
+      0.03332124277949333
+    ],
+    "orientation": [
+      -1.6292071336465597e-07,
+      -0.0,
+      -1.5707964897155762
+    ],
+    "name": "Shelf"
+  },
+  {
+    "model_path": "assets/Stack_of_Papers_1/model.fbx",
+    "texture_path": "assets/Stack_of_Papers_1/texture.jpg",
+    "position": [
+      -1.7122220993041992,
+      1.344708800315857,
+      1.4211153984069824
+    ],
+    "size": [
+      0.35917145013809204,
+      0.3349931538105011,
+      0.056191232055425644
+    ],
+    "orientation": [
+      -1.6292072757551068e-07,
+      -0.0,
+      1.5707964897155762
+    ],
+    "name": "Stack_of_Papers_1"
+  },
+  {
+    "model_path": "assets/Stack_of_Papers_2/model.fbx",
+    "texture_path": "assets/Stack_of_Papers_2/texture.jpg",
+    "position": [
+      -2.134307861328125,
+      1.3094819784164429,
+      1.2751615047454834
+    ],
+    "size": [
+      0.3355579078197479,
+      0.27036604285240173,
+      0.1104089543223381
+    ],
+    "orientation": [
+      -1.6292072757551068e-07,
+      -0.0,
+      1.5707964897155762
+    ],
+    "name": "Stack_of_Papers_2"
+  },
+  {
+    "model_path": "assets/Steam/model.fbx",
+    "texture_path": "assets/Steam/texture.jpg",
+    "position": [
+      0.48406779766082764,
+      1.012678861618042,
+      0.43740856647491455
+    ],
+    "size": [
+      0.1346333622932434,
+      0.1003798097372055,
+      0.057575494050979614
+    ],
+    "orientation": [
+      -4.3711395392165286e-08,
+      1.570796251296997,
+      0.0
+    ],
+    "name": "Steam"
+  },
+  {
+    "model_path": "assets/Sticky_Note_1/model.fbx",
+    "texture_path": "assets/Sticky_Note_1/texture.jpg",
+    "position": [
+      -2.5787181854248047,
+      1.4163286685943604,
+      1.2490427494049072
+    ],
+    "size": [
+      1.1973473590387584e-07,
+      0.12427540868520737,
+      0.1190444678068161
+    ],
+    "orientation": [
+      1.5707964897155762,
+      -0.0,
+      3.141592502593994
+    ],
+    "name": "Sticky_Note_1"
+  },
+  {
+    "model_path": "assets/Sticky_Note_2/model.fbx",
+    "texture_path": "assets/Sticky_Note_2/texture.jpg",
+    "position": [
+      -2.5944652557373047,
+      1.592167615890503,
+      1.3729597330093384
+    ],
+    "size": [
+      0.0,
+      0.12427539378404617,
+      0.1247577890753746
+    ],
+    "orientation": [
+      1.5707964897155762,
+      -0.0,
+      3.141592502593994
+    ],
+    "name": "Sticky_Note_2"
+  },
+  {
+    "model_path": "assets/Trash_Cam/model.fbx",
+    "texture_path": "assets/Trash_Cam/texture.jpg",
+    "position": [
+      -0.6360938549041748,
+      1.9743667840957642,
+      0.38221636414527893
+    ],
+    "size": [
+      0.389200359582901,
+      0.39619871973991394,
+      0.47437411546707153
+    ],
+    "orientation": [
+      -2.8213003133714665e-07,
+      0.0,
+      0.0
+    ],
+    "name": "Trash_Cam"
+  },
+  {
+    "model_path": "assets/Printer/model.fbx",
+    "texture_path": "assets/Printer/texture.jpg",
+    "position": [
+      -2.2890727519989014,
+      2.05080509185791,
+      1.1291736364364624
+    ],
+    "size": [
+      0.5760000348091125,
+      0.5773855447769165,
+      0.5220000147819519
+    ],
+    "orientation": [
+      -1.6292072757551068e-07,
+      5.024295781800919e-15,
+      -0.010695099830627441
+    ],
+    "name": "Printer"
+  },
+  {
+    "model_path": "assets/Tray_2/model.fbx",
+    "texture_path": "assets/Tray_2/texture.jpg",
+    "position": [
+      -2.287616014480591,
+      2.186986207962036,
+      1.1291736364364624
+    ],
+    "size": [
+      0.49651697278022766,
+      0.24672149121761322,
+      0.10218150168657303
+    ],
+    "orientation": [
+      -1.6292072757551068e-07,
+      5.024295781800919e-15,
+      -0.010695099830627441
+    ],
+    "name": "Tray_2"
+  },
+  {
+    "model_path": "assets/Tray_1/model.fbx",
+    "texture_path": "assets/Tray_1/texture.jpg",
+    "position": [
+      -2.287031888961792,
+      2.2415943145751953,
+      1.2291734218597412
+    ],
+    "size": [
+      0.49651697278022766,
+      0.24672149121761322,
+      0.10218150168657303
+    ],
+    "orientation": [
+      -1.6292072757551068e-07,
+      5.024295781800919e-15,
+      0.0
+    ],
+    "name": "Tray_1"
+  }
+]
