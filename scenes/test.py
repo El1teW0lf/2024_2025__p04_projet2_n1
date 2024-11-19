@@ -15,7 +15,7 @@ class Test_World(ShowBase):
 
         # Set initial camera position
         self.camera.setPos(0, 0, 45)
-        self.camera.setHpr(0, -90, 0)
+        self.camera.setHpr(0, 0, 0)
 
         # Movement variables
         self.speed = 100  # Movement speed
