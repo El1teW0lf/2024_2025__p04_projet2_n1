@@ -4,6 +4,16 @@ from direct.gui.DirectGui import *
 from direct.task import Task
 from modules import parse_json
 import os
+from panda3d.core import loadPrcFileData
+from panda3d.core import Shader
+
+configVars = """
+win-size 1280 720
+show-frame-rate-meter 1
+"""
+
+loadPrcFileData("", configVars)
+loadPrcFileData("", "gl-version 3 2")
 
 class Test_World(ShowBase):
     def __init__(self):
@@ -53,6 +63,8 @@ class Test_World(ShowBase):
         self.accept("control-up", self.update_key_map, ["control", False])
         self.accept("space", self.update_key_map, ["space", True])
         self.accept("space-up", self.update_key_map, ["space", False])
+        self.accept("escape", self.exit_game)
+
 
         # Tasks to update camera position, direction, and text
         self.taskMgr.add(self.update_camera, "UpdateCamera")
@@ -62,7 +74,28 @@ class Test_World(ShowBase):
         script_directory = os.path.dirname(os.path.realpath(__file__))
         folder_path = os.path.join(script_directory, "test_scene")
 
-        parse_json(folder_path,self.render,self.loader,"scenes/test_scene")
+        self.camLens.setFov(90)
+
+        parse_json(folder_path,self.render,self.loader,"scenes/test_scene",self.camera,self.camLens)
+
+        props = WindowProperties()
+        props.setFullscreen(True)
+        self.win.requestProperties(props)
+
+        screen_aspect_ratio = self.win.getProperties().getXSize() / self.win.getProperties().getYSize()
+        self.camLens.setAspectRatio(screen_aspect_ratio)
+
+        self.accept("aspectRatioChanged", self.win_resize)
+
+        self.taskMgr.add(self.update, "update")
+        self.taskMgr.add(self.update, "update_shader")
+
+
+
+    def update_shader(self, task):
+        ft = globalClock.getFrameTime()
+        self.render.set_shader_input("time", ft)
+        return task.cont
         
     def lock_mouse(self):
         """Locks the mouse to the center of the window."""
@@ -139,3 +172,18 @@ class Test_World(ShowBase):
         self.sub.setTexture(self.sub_tex, 1)
 
         print(self.sub.getPos())
+
+    def exit_game(self):
+        # Exit the application
+        self.userExit()
+
+    
+    def update(self, task):
+        ft = globalClock.getFrameTime()
+        self.render.set_shader_input("iTime", ft)
+        return task.cont
+
+    def win_resize(self):
+        self.render.set_shader_input("iResolution", (self.win.getXSize(), self.win.getYSize()))
+        self.render.set_shader_input("iMouse", (self.win.getXSize() / 2, self.win.getYSize() / 2))
+        self.render.set_shader_input("resolution", (self.win.getXSize(), self.win.getYSize()))
