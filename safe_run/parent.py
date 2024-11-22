@@ -3,7 +3,9 @@ import socketserver
 import subprocess
 import threading
 import json
+import os
 
+file_path = os.getcwd() 
 PORT = 8080
 
 class ChildMessageHandler(http.server.BaseHTTPRequestHandler):
@@ -35,7 +37,8 @@ def start_server():
 # Launch the child process
 def start_child_process():
     try:
-        subprocess.Popen(["python3", "child.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        print(os.path.join(file_path,"safe_run/child.py"))
+        subprocess.Popen(["python", os.path.join(file_path,"safe_run/child.py")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         print("[Parent] Child process started.")
     except Exception as e:
         print(f"[Parent] Failed to start child process: {e}")

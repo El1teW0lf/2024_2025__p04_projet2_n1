@@ -14,7 +14,7 @@ out float v_depth;
 
 void main() {
     gl_Position = p3d_ModelViewProjectionMatrix * p3d_Vertex;
-    gl_Position = round(gl_Position /Jitter ) * Jitter;
+    //gl_Position = round(gl_Position /Jitter ) * Jitter;
     v_texcoord = p3d_MultiTexCoord0; 
     v_depth = gl_Position.w;
 }

@@ -27,11 +27,11 @@ def parse_json(path,render,loader,short_path,camera,camLens):
         shader = Shader.load(Shader.SLGLSL, "shaders/psx_vert.glsl", "shaders/psx_frag.glsl")
         model.setShader(shader)
 
-        model.setShaderInput("Jitter", 0.5)
+        model.setShaderInput("Jitter", 1)
         model.setShaderInput("FogColor", (0, 0, 0))  # RGB fog color
         model.setShaderInput("FogDensity", 0.0005)
         model.setShaderInput("PixelScale", 1.5)
-        model.setShaderInput("ColorDepth", 16.0)
+        model.setShaderInput("ColorDepth", 12.0)
         model.setShaderInput("pixel_size", 0.1)
 
         count += 1
