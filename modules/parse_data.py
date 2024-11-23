@@ -62,20 +62,25 @@ def parse_json(path,render,loader,short_path,bullet_world):
 
                 center = (min_point + max_point) / 2
                 dimensions = max_point - min_point
-                dimensions = size*100
+                dimensions = size * 100
 
                 print(dimensions)
 
-                collision_box = CollisionBox(center, dimensions.x / 2, dimensions.y / 2, dimensions.z / 2)
-                collision_node = CollisionNode(f"{i['model_path']}_collider")
-                collision_node.addSolid(collision_box)
+                bullet_shape = BulletBoxShape(Vec3(dimensions.x / 2, dimensions.y / 2, dimensions.z / 2))
+                bullet_node = BulletRigidBodyNode(f"{i['model_path']}_collider")
+                bullet_node.addShape(bullet_shape)
 
-                collision_node.setIntoCollideMask(BitMask32.bit(1))
-                collision_node_path = model.attachNewNode(collision_node)
+                bullet_node.setMass(0)
 
-                collision_node_path.show()
-                collision_node_path.setTransparency(TransparencyAttrib.MAlpha)
-                collision_node_path.setColor(1, 0, 0, 0.3) 
+                bodyNP = render.attachNewNode(bullet_node)
+                bodyNP.show()
+                bodyNP.setTransparency(TransparencyAttrib.MAlpha)
+                bodyNP.setColor(1, 0, 0, 0.3)
+                bodyNP.setScale(0.01 * scale_factor)
+                bodyNP.setPos(Vec3(-i["position"][0], -i["position"][1], i["position"][2])*scale_factor)
+                bodyNP.setHpr(Vec3(i["orientation"][0], i["orientation"][1]+90, i["orientation"][2]))
+                
+                bullet_world.attachRigidBody(bodyNP.node())
 
             elif collistion_type == 2:
                 geom = model.findAllMatches('**/+GeomNode').getPath(0).node().getGeom(0)

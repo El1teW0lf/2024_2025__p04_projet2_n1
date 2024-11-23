@@ -48,7 +48,7 @@ class TestWorld():
         bodyNP = self.render.attachNewNode(body)
         bodyNP.node().addShape(shape)
         bodyNP.node().setMass(0)
-        bodyNP.setPos(0, 0, -10)
+        bodyNP.setPos(0, 0, 0)
         bodyNP.setCollideMask(BitMask32.bit(1))
         self.bullet_world.attachRigidBody(bodyNP.node())
 
@@ -67,11 +67,13 @@ class TestWorld():
 
         self.menu = PauseMenu(self)
 
+        self.show_debug_collision = True
+
         debugNode = BulletDebugNode('Debug')
-        debugNode.showWireframe(False)
-        debugNode.showConstraints(False)
-        debugNode.showBoundingBoxes(False)
-        debugNode.showNormals(False)
+        debugNode.showWireframe(self.show_debug_collision)
+        debugNode.showConstraints(self.show_debug_collision)
+        debugNode.showBoundingBoxes(self.show_debug_collision)
+        debugNode.showNormals(self.show_debug_collision)
         debugNP = self.render.attachNewNode(debugNode)
         debugNP.show()
 

@@ -14,10 +14,10 @@ from direct.showbase.ShowBaseGlobal import globalClock
 class FreeCameraController:
     def __init__(self, base):
         self.base = base
-        self.speed = 50
+        self.speed = 1000
+        self.jump_power = 500
         self.paused = False
         self.mouse_free = False
-        self.camera = self.base.camera
         self.h = 0
         self.p = 0
         self.key_map = {
@@ -39,9 +39,39 @@ class FreeCameraController:
 
         self.accept_inputs()
 
+        # Initialize Bullet physics system
+        self.init_bullet()
+
         self.base.taskMgr.add(self.update_camera, "UpdateCamera")
         self.base.taskMgr.add(self.update_camera_direction, "UpdateCameraDirection")
         self.base.taskMgr.add(self.update_info_text, "UpdateInfoText")
+
+    def init_bullet(self):
+
+        # Create a collision shape and node for the camera
+        radius = 0.5
+        height = radius*4.29
+
+        camera_shape = BulletCapsuleShape(radius,height,2)
+        self.camera_node = BulletRigidBodyNode("Camera")
+        self.camera_node.addShape(camera_shape)
+        self.camera_node.setMass(1)
+        self.camera_node.setDeactivationEnabled(False)
+
+        # Attach the node to the render tree
+        self.camera_np = self.base.render.attachNewNode(self.camera_node)
+        self.camera_np.setCollideMask(BitMask32.bit(1))
+        self.base.camera.reparentTo(self.camera_np)
+        #self.base.oobe()
+
+        self.camera_node.setCcdMotionThreshold(0.01)
+        self.camera_node.setCcdSweptSphereRadius(0.5)
+
+        self.camera_np.setPos(Vec3(0,0,5))
+        self.base.camera.setPos(Vec3(0,0,height/2))
+
+        # Add the camera node to the Bullet world
+        self.base.bullet_world.attachRigidBody(self.camera_node)
 
     def lock_mouse(self):
         props = WindowProperties()
@@ -69,14 +99,21 @@ class FreeCameraController:
 
     def update_camera(self, task):
 
-        velocity = self.camera.getPos()
+        velocity = Vec3(0,0,self.camera_node.get_linear_velocity().z)
 
         if not self.paused:
             dt = globalClock.getDt()
 
-            forward = self.camera.getQuat().getForward() * self.speed * dt
-            right = self.camera.getQuat().getRight() * self.speed * dt
-            up = self.camera.getQuat().getUp() * self.speed * dt
+            clone = self.camera_np.copyTo(self.base.render)
+            clone.setHpr(self.h, 0, 0)
+
+            forward = clone.getQuat().getForward() * self.speed * dt
+            right = clone.getQuat().getRight() * self.speed * dt
+            up = clone.getQuat().getUp() * self.jump_power * dt
+
+            clone.removeNode()
+
+
             
             if self.key_map["z"]:
                 velocity += forward
@@ -86,13 +123,21 @@ class FreeCameraController:
                 velocity -= right
             if self.key_map["d"]:
                 velocity += right
-            if self.key_map["space"]:
-                velocity += up
-            if self.key_map["control"]:
-                velocity -= up
 
+            contact_under = False
+
+            result = self.base.bullet_world.contactTest(self.camera_node)
+            for contact in result.getContacts():
+                point = contact.getManifoldPoint().getPositionWorldOnB()
+                position = self.camera_np.getPos()
+                if point[2] < position[2]:
+                    contact_under = True
+
+            if self.key_map["space"] and contact_under:
+                print("Jumped")
+                velocity += up
                 
-        self.camera.setPos(velocity)
+        self.camera_node.setLinearVelocity(velocity)
 
         return Task.cont
 
@@ -103,14 +148,17 @@ class FreeCameraController:
 
             self.h = self.h - x * self.mouse_sensitivity
             self.p = self.p + y * self.mouse_sensitivity
-            self.base.camera.setHpr(self.h,self.p,0)
+            self.base.camera.setHpr(0, 0, 0)
+            self.camera_np.setHpr(self.h, 0, 0)
+            self.base.camera.setHpr(0,self.p,0)
+            self.camera_node.setAngularVelocity(Vec3(0, 0, 0))
 
             self.base.win.movePointer(0, self.base.win.getXSize() // 2, self.base.win.getYSize() // 2)
 
         return Task.cont
 
     def update_info_text(self, task):
-        pos = self.base.camera.getPos()
+        pos = self.camera_np.getPos()
         hpr = self.base.camera.getHpr()
         self.info_text.setText(
             f"Position: x={pos.x:.2f}, y={pos.y:.2f}, z={pos.z:.2f}\n"
