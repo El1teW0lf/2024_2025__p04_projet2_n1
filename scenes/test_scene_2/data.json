@@ -1,0 +1,962 @@
+[
+  {
+    "texture_path": "assets/Mesh_Monitor_06/texture.jpg",
+    "model_path": "assets/Mesh_Monitor_06/model.fbx",
+    "position": [
+      -4.130069732666016,
+      0.0,
+      0.0
+    ],
+    "size": [
+      0.7129702568054199,
+      0.6525325775146484,
+      0.9359875917434692
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Monitor_06"
+  },
+  {
+    "texture_path": "assets/Mesh_Monitor_05/texture.jpg",
+    "model_path": "assets/Mesh_Monitor_05/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.6903465986251831,
+      0.5993642807006836,
+      0.6332923173904419
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Monitor_05"
+  },
+  {
+    "texture_path": "assets/Mesh_Monitor_02/texture.jpg",
+    "model_path": "assets/Mesh_Monitor_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.6310743093490601,
+      0.5993647575378418,
+      0.5628561973571777
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Monitor_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Monitor_01/texture.jpg",
+    "model_path": "assets/Mesh_Monitor_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.29167699813842773,
+      0.5993642807006836,
+      0.5628561973571777
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Monitor_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Speaker_02/texture.jpg",
+    "model_path": "assets/Mesh_Speaker_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.18330705165863037,
+      0.11698722839355469,
+      0.25
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Speaker_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Speaker_01/texture.jpg",
+    "model_path": "assets/Mesh_Speaker_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.17568790912628174,
+      0.11698722839355469,
+      0.25
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Speaker_01"
+  },
+  {
+    "texture_path": "assets/Mesh_PC_02/texture.jpg",
+    "model_path": "assets/Mesh_PC_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.4863792657852173,
+      0.5000000596046448,
+      0.15000009536743164
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_PC_02"
+  },
+  {
+    "texture_path": "assets/Mesh_PC_01/texture.jpg",
+    "model_path": "assets/Mesh_PC_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5496128797531128,
+      0.22500038146972656,
+      0.5150258541107178
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_PC_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Computer_Keyboard_01/texture.jpg",
+    "model_path": "assets/Mesh_Computer_Keyboard_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.2940077781677246,
+      0.5624790191650391,
+      0.02354755625128746
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Computer_Keyboard_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Computer_Mouse_02/texture.jpg",
+    "model_path": "assets/Mesh_Computer_Mouse_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.12854337692260742,
+      0.06980037689208984,
+      0.041321203112602234
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Computer_Mouse_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Computer_Mouse_01/texture.jpg",
+    "model_path": "assets/Mesh_Computer_Mouse_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.17263245582580566,
+      0.09519672393798828,
+      0.05137989670038223
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Computer_Mouse_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Laptop_02/texture.jpg",
+    "model_path": "assets/Mesh_Laptop_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.3633098602294922,
+      0.49149036407470703,
+      0.3797677159309387
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Laptop_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Laptop_01/texture.jpg",
+    "model_path": "assets/Mesh_Laptop_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.3497741222381592,
+      0.49149036407470703,
+      0.060692839324474335
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Laptop_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Harddrive_01/texture.jpg",
+    "model_path": "assets/Mesh_Harddrive_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.15024185180664062,
+      0.10000038146972656,
+      0.026202742010354996
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Harddrive_01"
+  },
+  {
+    "texture_path": "assets/Mesh_ComputerRam_01/texture.jpg",
+    "model_path": "assets/Mesh_ComputerRam_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.05666661262512207,
+      0.074188232421875,
+      0.006178474053740501
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_ComputerRam_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Motherboard_01/texture.jpg",
+    "model_path": "assets/Mesh_Motherboard_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.3236227333545685,
+      0.43441104888916016,
+      0.0430217944085598
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Motherboard_01"
+  },
+  {
+    "texture_path": "assets/Mesh_FloppyDisc_01/texture.jpg",
+    "model_path": "assets/Mesh_FloppyDisc_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.13141369819641113,
+      0.12235546112060547,
+      0.012800967320799828
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_FloppyDisc_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Fan_01/texture.jpg",
+    "model_path": "assets/Mesh_Fan_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.10000002384185791,
+      0.10000038146972656,
+      0.02199314720928669
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Fan_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Table_Narrow_01/texture.jpg",
+    "model_path": "assets/Mesh_Table_Narrow_01/model.fbx",
+    "position": [
+      0.0,
+      -1.9595900774002075,
+      0.0
+    ],
+    "size": [
+      0.6455800533294678,
+      1.5,
+      0.7700000405311584
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Table_Narrow_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Table_Square_01/texture.jpg",
+    "model_path": "assets/Mesh_Table_Square_01/model.fbx",
+    "position": [
+      3.270505905151367,
+      0.0,
+      0.0
+    ],
+    "size": [
+      1.0898277759552002,
+      1.0,
+      0.7071792483329773
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Table_Square_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Table_Rectangle_01/texture.jpg",
+    "model_path": "assets/Mesh_Table_Rectangle_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.8000000715255737,
+      1.5,
+      0.770000159740448
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Table_Rectangle_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Table_Round_01/texture.jpg",
+    "model_path": "assets/Mesh_Table_Round_01/model.fbx",
+    "position": [
+      0.0,
+      -4.924147605895996,
+      0.0
+    ],
+    "size": [
+      1.7999998331069946,
+      1.799999713897705,
+      0.710000216960907
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Table_Round_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Desk_01/texture.jpg",
+    "model_path": "assets/Mesh_Desk_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.7494378089904785,
+      1.0399999618530273,
+      0.79217928647995
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Desk_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Table_Wood_01/texture.jpg",
+    "model_path": "assets/Mesh_Table_Wood_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.8177364468574524,
+      0.8076030015945435,
+      0.7562442421913147
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Table_Wood_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_011/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_011/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.6329903602600098,
+      0.5781674385070801,
+      0.5774500370025635
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_011"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_010/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_010/model.fbx",
+    "position": [
+      1.495484709739685,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.7499749660491943,
+      0.6585183143615723,
+      0.6999555230140686
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_010"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_09/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_09/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.6656262874603271,
+      0.5928359031677246,
+      0.6929683685302734
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_09"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_08/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_08/model.fbx",
+    "position": [
+      4.457821846008301,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.7987828254699707,
+      0.5684053897857666,
+      0.6588268280029297
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_08"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Couch_015/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Couch_015/model.fbx",
+    "position": [
+      -3.19004225730896,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.7876148223876953,
+      0.5684053897857666,
+      0.7071202993392944
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Couch_015"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Wood_04/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Wood_04/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5,
+      0.4546952247619629,
+      0.7262865304946899
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Wood_04"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Wood_02/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Wood_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.3737438917160034,
+      0.4066525101661682,
+      0.8323996067047119
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Wood_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Wood_03/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Wood_03/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.4086376428604126,
+      0.45062780380249023,
+      0.7807108163833618
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Wood_03"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Wood_01/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Wood_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.37374401092529297,
+      0.40665292739868164,
+      1.072399616241455
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Wood_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Plastic_02/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Plastic_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5895326137542725,
+      0.5279998779296875,
+      0.8400001525878906
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Plastic_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Plastic_01/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Plastic_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.589532732963562,
+      0.5279998779296875,
+      0.8400001525878906
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Plastic_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Plastic_03/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Plastic_03/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.4881610870361328,
+      0.5279998779296875,
+      0.8441845178604126
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Plastic_03"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Plastic_Stack/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Plastic_Stack/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5930273532867432,
+      0.6879291534423828,
+      0.9906421899795532
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Plastic_Stack"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Plastic_Stack.001/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Plastic_Stack.001/model.fbx",
+    "position": [
+      -2.2357563972473145,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.7412843704223633,
+      0.8599119186401367,
+      1.2383027076721191
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Plastic_Stack.001"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_06/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_06/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5060882568359375,
+      0.4596729278564453,
+      0.7262863516807556
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_06"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_05/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_05/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.4999999701976776,
+      0.4596729576587677,
+      0.7262864112854004
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_05"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_04/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_04/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5,
+      0.4596729278564453,
+      0.6999999284744263
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_04"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_03/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_03/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5,
+      0.4596729278564453,
+      0.6999999284744263
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_03"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Stool_02/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Stool_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5594089031219482,
+      0.5047135353088379,
+      0.3408365547657013
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Stool_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Stool_01/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Stool_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5662107467651367,
+      0.5510234832763672,
+      0.34086984395980835
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Stool_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_02/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_02/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.6241450309753418,
+      0.550062894821167,
+      0.6594807505607605
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Chair_Single_01/texture.jpg",
+    "model_path": "assets/Mesh_Chair_Single_01/model.fbx",
+    "position": [
+      0.0,
+      3.1602113246917725,
+      0.0
+    ],
+    "size": [
+      0.5713977813720703,
+      0.5510239601135254,
+      0.70003342628479
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Chair_Single_01"
+  },
+  {
+    "texture_path": "assets/Mesh_Barrier_02/texture.jpg",
+    "model_path": "assets/Mesh_Barrier_02/model.fbx",
+    "position": [
+      9.830339875449567e-10,
+      3.160207986831665,
+      4.808954301438462e-08
+    ],
+    "size": [
+      0.40000009536743164,
+      2.194340705871582,
+      1.0293476581573486
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Barrier_02"
+  },
+  {
+    "texture_path": "assets/Mesh_Barrier_01/texture.jpg",
+    "model_path": "assets/Mesh_Barrier_01/model.fbx",
+    "position": [
+      -2.143240213394165,
+      -3.282715320587158,
+      0.0
+    ],
+    "size": [
+      0.639373779296875,
+      2.096693992614746,
+      1.0134236812591553
+    ],
+    "orientation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "name": "Mesh_Barrier_01"
+  }
+]

@@ -37,8 +37,13 @@ def start_server():
 # Launch the child process
 def start_child_process():
     try:
-        print(os.path.join(file_path,"safe_run/child.py"))
-        subprocess.Popen(["python", os.path.join(file_path,"safe_run/child.py")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if os.name == "nt":
+            subprocess.Popen(["python", os.path.join(file_path,"safe_run/child.py")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        elif os.name == "posix":
+            subprocess.Popen(["python3", "safe_run/child.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        else:
+            print(f"[Parent] Failed to start child process: Unknown OS")
+            return
         print("[Parent] Child process started.")
     except Exception as e:
         print(f"[Parent] Failed to start child process: {e}")
