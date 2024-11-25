@@ -1,16 +1,17 @@
-from direct.showbase.ShowBase import ShowBase
 from direct.gui.DirectGui import DirectButton, DirectLabel
 from panda3d.core import TextNode
 
 
-class MainMenu(ShowBase):
-    def __init__(self):
-        ShowBase.__init__(self)
+class MainMenu():
+    def __init__(self,base,launch_function):
+        self.on_launch = launch_function
+        self.base = base
         self.setup_main_menu()
 
     def setup_main_menu(self):
 
-        # Title
+        self.base.ui["start_menu"] = []
+
         self.title = DirectLabel(
             text="Main Menu",
             scale=0.1,
@@ -20,7 +21,7 @@ class MainMenu(ShowBase):
             text_align=TextNode.ACenter
         )
 
-        # Buttons
+
         self.start_button = DirectButton(
             text="Start Game",
             scale=0.08,
@@ -40,19 +41,20 @@ class MainMenu(ShowBase):
             command=self.quit_game
         )
 
+        self.base.ui["start_menu"].append(self.title)
+        self.base.ui["start_menu"].append(self.start_button)
+        self.base.ui["start_menu"].append(self.settings_button)
+        self.base.ui["start_menu"].append(self.quit_button)
+
     def start_game(self):
         print("Start Game clicked!")
-        # Transition to the game scene or logic here
+        self.on_launch()
+
 
     def show_settings(self):
         print("Settings clicked!")
-        # Add logic to show a settings menu
 
     def quit_game(self):
         print("Quit clicked!")
-        self.userExit()
+        self.base.userExit()
 
-
-if __name__ == "__main__":
-    app = MainMenu()
-    app.run()
