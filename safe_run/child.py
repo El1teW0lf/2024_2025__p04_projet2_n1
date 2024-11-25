@@ -1,5 +1,8 @@
 import requests
 import json
+import data
+from game_functions import *
+
 
 PARENT_URL = "http://localhost:8080"
 
@@ -26,7 +29,11 @@ def execute_user_code(user_code):
             "sum": sum,
             "print": print,
         },
-        "send_message_to_parent": send_message_to_parent,  # Expose the function
+        "send_message_to_parent": send_message_to_parent,
+        "door_close" : door_close,
+        "door_open" : door_open,
+        "blinds_close" : blinds_close,
+        "blinds_open" : blinds_open # Expose the function
     }
     safe_locals = {}
     
@@ -43,8 +50,9 @@ if __name__ == "__main__":
     # Step 2: Execute user code (replace this with actual input)
     user_code = """
 # User-defined code
-send_message_to_parent("/custom", {"message": "This is a message from the custom code."})
-result = sum(range(10))
+blinds_close("blind1")
+blinds_open("blind2")
+blinds_close("blind2")
 """
     result = execute_user_code(user_code)
 
