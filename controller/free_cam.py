@@ -51,18 +51,18 @@ class FreeCameraController:
         self.base.win.movePointer(0, self.base.win.getXSize() // 2, self.base.win.getYSize() // 2)
 
     def accept_inputs(self):
-        self.base.accept("z", self.update_key_map, ["z", True])
-        self.base.accept("z-up", self.update_key_map, ["z", False])
-        self.base.accept("s", self.update_key_map, ["s", True])
-        self.base.accept("s-up", self.update_key_map, ["s", False])
-        self.base.accept("q", self.update_key_map, ["q", True])
-        self.base.accept("q-up", self.update_key_map, ["q", False])
-        self.base.accept("d", self.update_key_map, ["d", True])
-        self.base.accept("d-up", self.update_key_map, ["d", False])
-        self.base.accept("control", self.update_key_map, ["control", True])
-        self.base.accept("control-up", self.update_key_map, ["control", False])
-        self.base.accept("space", self.update_key_map, ["space", True])
-        self.base.accept("space-up", self.update_key_map, ["space", False])
+        self.base.add_key("z", self.update_key_map, ["z", True])
+        self.base.add_key("z-up", self.update_key_map, ["z", False])
+        self.base.add_key("s", self.update_key_map, ["s", True])
+        self.base.add_key("s-up", self.update_key_map, ["s", False])
+        self.base.add_key("q", self.update_key_map, ["q", True])
+        self.base.add_key("q-up", self.update_key_map, ["q", False])
+        self.base.add_key("d", self.update_key_map, ["d", True])
+        self.base.add_key("d-up", self.update_key_map, ["d", False])
+        self.base.add_key("control", self.update_key_map, ["control", True])
+        self.base.add_key("control-up", self.update_key_map, ["control", False])
+        self.base.add_key("space", self.update_key_map, ["space", True])
+        self.base.add_key("space-up", self.update_key_map, ["space", False])
 
     def update_key_map(self, key, state):
         self.key_map[key] = state

@@ -18,7 +18,7 @@ def parse_json(path,render,loader,short_path,bullet_world):
         
     scene_root = NodePath("SceneRoot")
     scene_root.reparentTo(render)
-    scale_factor = 10
+    scale_factor = 5
 
     count = 0
 
@@ -31,6 +31,7 @@ def parse_json(path,render,loader,short_path,bullet_world):
                 continue
 
             model.reparentTo(scene_root)
+            model.setTag("Clickable", i["model_path"])
 
             position = Vec3(-i["position"][0], i["position"][2], i["position"][1])
             size = Vec3(i["size"][0], i["size"][2], i["size"][1])
