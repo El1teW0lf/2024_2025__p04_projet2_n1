@@ -4,7 +4,6 @@
   
 ![image](https://forthebadge.com/images/badges/contains-technical-debt.svg)
 ![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)
-![forthebadge](https://forthebadge.com?primaryBGColor=%23fb1703&primaryTextColor=%23FFFFFF&secondaryBGColor=%23079af2&secondaryTextColor=%23FFFFFF&tertiaryBGColor=%232674A4&tertiaryTextColor=%23FFFFFF&primaryLabel=Made+with+a&secondaryLabel=SPECIAL+GUY&tertiaryLabel=&panels=2#/generator)
 ![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)
 ![forthebadge](https://forthebadge.com/images/badges/gluten-free.png)
   <img src="http://ForTheBadge.com/images/badges/built-with-swag.svg">
