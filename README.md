@@ -10,6 +10,7 @@
   <img src="https://forthebadge.com/images/badges/made-with-python.svg">
 [![forthebadge](https://forthebadge.com/images/badges/does-not-contain-msg.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/it-works-no-idea-why.svg)](https://forthebadge.com)
 
 ![image](https://github.com/user-attachments/assets/7071b2fc-3b38-4ae8-99b3-0c113be5a059)
 ![image](https://github.com/user-attachments/assets/55a6d1e1-942a-4c84-9a1d-0607daea6c50)
