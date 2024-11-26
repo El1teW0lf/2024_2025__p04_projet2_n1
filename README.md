@@ -5,7 +5,7 @@
 ![image](https://forthebadge.com/images/badges/contains-technical-debt.svg)
 ![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)
 ![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)
-
+![forthebadge](https://forthebadge.com/images/badges/gluten-free.png)
   <img src="http://ForTheBadge.com/images/badges/built-with-swag.svg">
   <img src="https://forthebadge.com/images/badges/made-with-python.svg">
 </h1>
