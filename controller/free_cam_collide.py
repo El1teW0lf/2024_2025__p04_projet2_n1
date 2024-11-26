@@ -11,7 +11,7 @@ from direct.task import Task
 from direct.showbase.ShowBaseGlobal import globalClock
 
 
-class FreeCameraController:
+class FreeCameraCollideController:
     def __init__(self, base):
         self.base = base
         self.speed = 1000
