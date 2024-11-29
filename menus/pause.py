@@ -12,7 +12,7 @@ class PauseMenu:
             pos=(0, 0, 0)  
         )
 
-        self.base.base.ui["pause_menu"] = self.menu_frame
+        self.base.main.ui["pause_menu"] = self.menu_frame
 
         self.title = OnscreenText(
             text="Main Menu",

@@ -42,7 +42,6 @@ class Main(ShowBase):
         self.camera.reparentTo(self.render)    
 
     def add_key(self,key,function,args):
-        print(key,function,args)
         if key in self.keys:
             self.keys[key].append([function,args])
         else:

@@ -6,7 +6,7 @@ class CodeMenu:
     def __init__(self, base):
         self.base = base
 
-        self.base.base.add_any_key(self.on_key_press)
+        self.base.main.add_any_key(self.on_key_press)
 
         self.ide_frame = DirectFrame(
             frameColor=(0.1, 0.1, 0.1, 1),
@@ -14,7 +14,7 @@ class CodeMenu:
             pos=(0, 0, 0)
         )
 
-        self.base.base.ui["code_ide"] = self.ide_frame
+        self.base.main.ui["code_ide"] = self.ide_frame
 
         # Title
         self.title = OnscreenText(

@@ -1,5 +1,5 @@
 from panda3d.core import loadPrcFileData, WindowProperties
-from controller import FreeCameraController
+from controller import FreeCameraController,PlayerController
 from modules import parse_json
 import os
 from menus import PauseMenu
@@ -21,26 +21,26 @@ loadPrcFileData("", "gl-version 3 2")
 class TestWorld():
     def __init__(self,base):
 
-        self.base = base
+        self.main = base
 
-        self.base.reset()
+        self.main.reset()
 
         self.userExit = base.userExit
 
-        self.base.disableMouse()
+        self.main.disableMouse()
 
-        self.bullet_world = self.base.bullet_world
+        self.bullet_world = self.main.bullet_world
 
-        self.base.setBackgroundColor(0,0,0)
+        self.main.setBackgroundColor(0,0,0)
 
-        self.camera = self.base.camera
-        self.loader = self.base.loader
-        self.render = self.base.render
+        self.camera = self.main.camera
+        self.loader = self.main.loader
+        self.render = self.main.render
 
         self.camera.setPos(0, 0, 0)
         self.camera.setHpr(0, 0, 0)
 
-        self.controller = FreeCameraController(self.base)
+        self.controller = PlayerController(self.main)
 
         shape = BulletPlaneShape(Vec3(0, 0, 100), 0)
 
@@ -55,19 +55,19 @@ class TestWorld():
         script_directory = os.path.dirname(os.path.realpath(__file__))
         folder_path = os.path.join(script_directory, "test_scene_2")
 
-        self.base.camLens.setFov(90)
+        self.main.camLens.setFov(90)
         parse_json(folder_path, self.render, self.loader, "scenes/test_scene_2", self.bullet_world)
 
         props = WindowProperties()
         props.setFullscreen(True)
         #self.win.requestProperties(props)
 
-        screen_aspect_ratio = self.base.win.getProperties().getXSize() / self.base.win.getProperties().getYSize()
-        self.base.camLens.setAspectRatio(screen_aspect_ratio)
+        screen_aspect_ratio = self.main.win.getProperties().getXSize() / self.main.win.getProperties().getYSize()
+        self.main.camLens.setAspectRatio(screen_aspect_ratio)
 
         self.menu = PauseMenu(self)
 
-        self.show_debug_collision = True
+        self.show_debug_collision = False
 
         debugNode = BulletDebugNode('Debug')
         debugNode.showWireframe(self.show_debug_collision)
@@ -79,8 +79,8 @@ class TestWorld():
 
         self.bullet_world.setDebugNode(debugNP.node())
 
-        self.base.accept("escape", self.toggle_pause_menu)
-        self.base.taskMgr.add(self.update, 'draw_debug_world')
+        self.main.accept("escape", self.toggle_pause_menu)
+        self.main.taskMgr.add(self.update, 'draw_debug_world')
 
     def toggle_pause_menu(self):
         if self.menu.menu_frame.isHidden():
