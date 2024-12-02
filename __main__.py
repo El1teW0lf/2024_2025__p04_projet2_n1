@@ -3,6 +3,7 @@ from direct.showbase.ShowBase import ShowBase
 from modules import parse_json
 from panda3d.bullet import BulletWorld
 from panda3d.core import Vec3
+import line_profiler
 
 class Main(ShowBase):
     def __init__(self):

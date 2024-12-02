@@ -1,5 +1,5 @@
 from panda3d.core import loadPrcFileData, WindowProperties
-from controller import PlayerController
+from controller import PlayerController,FreeCameraController
 from modules import parse_json
 import os
 from menus import PauseMenu, CodeMenu
