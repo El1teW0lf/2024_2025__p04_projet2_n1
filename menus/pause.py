@@ -6,17 +6,35 @@ class PauseMenu:
     def __init__(self, base):
         self.base = base
 
-        self.menu_frame = DirectFrame(
-            frameColor=(0, 0, 0, 0.7),  
-            frameSize=(-0.5, 0.5, -0.5, 0.5),  
-            pos=(0, 0, 0) ,
-            sortOrder=1
-        )
+        # Get the aspect ratio to calculate fullscreen coordinates
+        aspect_ratio = base.main.getAspectRatio()
 
+        # Fullscreen background frame (hidden initially)
+        self.background_frame = DirectFrame(
+            frameSize=(-aspect_ratio, aspect_ratio, -1, 1),  # Fullscreen coordinates
+            frameTexture="menus/assets/Background_Green.png",  # Replace with your image path
+            frameColor=(1, 1, 1, 1),  # Fully transparent frame, texture still visible
+            parent=base.main.aspect2d,  # Parent it to aspect2d for proper scaling
+            sortOrder=0  # Ensure it is drawn behind the menu
+        )
+        self.background_frame.hide()  # Initially hidden
+
+        # Main menu frame (overlay, hidden initially)
+        self.menu_frame = DirectFrame(
+            frameColor=(1, 1, 1, 0),  
+            frameSize=(-aspect_ratio, aspect_ratio, -1, 1),  
+            pos=(0, 0, 0),  
+            parent=base.main.aspect2d,  # Parent it to aspect2d for proper scaling
+            sortOrder=1  # Ensure it is drawn above the background
+        )
+        self.menu_frame.hide()  # Initially hidden
+
+        # Add the menu to the UI dictionary for potential external control
         self.base.main.ui["pause_menu"] = self.menu_frame
 
+        # Title text
         self.title = OnscreenText(
-            text="Main Menu",
+            text="Pause Menu",
             parent=self.menu_frame,
             scale=0.1,
             pos=(0, 0.35),
@@ -24,30 +42,32 @@ class PauseMenu:
             align=TextNode.ACenter
         )
 
+        # Resume button
         self.resume_button = DirectButton(
             text="Resume",
             scale=0.07,
-            command=self.base.toggle_pause_menu,
+            command=self.base.toggle_pause_menu,  # Toggles the menu visibility
             parent=self.menu_frame,
             pos=(0, 0, 0.1),
         )
 
+        # Quit button
         self.quit_button = DirectButton(
             text="Quit",
             scale=0.07,
-            command=self.exit_game,
+            command=self.exit_game,  # Exits the game
             parent=self.menu_frame,
             pos=(0, 0, -0.1),
         )
 
-        self.menu_frame.hide()
-
     def show(self):
-        """Show the menu."""
+        """Show the pause menu and background."""
+        self.background_frame.show()
         self.menu_frame.show()
 
     def hide(self):
-        """Hide the menu."""
+        """Hide the pause menu and background."""
+        self.background_frame.hide()
         self.menu_frame.hide()
 
     def exit_game(self):
