@@ -12,6 +12,14 @@ class PauseMenu:
             pos=(0, 0, 0)  
         )
 
+        self.background_frame = DirectFrame(
+            parent=self.menu_frame,
+            frameSize=(-0.5, 0.5, -0.5, 0.5),  # Match the menu frame size
+            frameTexture="assets/pause_menu_bg.png",  # Replace with your image path
+            frameColor=(1, 1, 1, 1),  # Ensure the texture color shows up correctly
+            pos=(0, 0, 0)
+        )
+
         self.base.base.ui["pause_menu"] = self.menu_frame
 
         self.title = OnscreenText(
