@@ -9,10 +9,11 @@ class PauseMenu:
         self.menu_frame = DirectFrame(
             frameColor=(0, 0, 0, 0.7),  
             frameSize=(-0.5, 0.5, -0.5, 0.5),  
-            pos=(0, 0, 0)  
+            pos=(0, 0, 0) ,
+            sortOrder=1
         )
 
-        self.base.base.ui["pause_menu"] = self.menu_frame
+        self.base.main.ui["pause_menu"] = self.menu_frame
 
         self.title = OnscreenText(
             text="Main Menu",

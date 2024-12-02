@@ -20,13 +20,15 @@ class Main(ShowBase):
             "`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "[", "]", "{", "}", ";", ":", "'", '"', ",", ".", "<", ">", "/", "?", "\\", "|",
             "space", "tab", "enter", "backspace", "escape", "delete", "insert", "home", "end", "page_up", "page_down",
             "arrow_left", "arrow_right", "arrow_up", "arrow_down",
-            "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12"
+            "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12",
+
         ]
 
 
         for key in self.possible_keys:  
             self.accept(key, self.on_key_press, [key])
             self.accept(key+ "-up", self.on_key_press , [key+ "-up"])
+            self.accept(key+ "-repeat", self.on_key_press , [key+ "-repeat"])
 
 
 
@@ -43,7 +45,6 @@ class Main(ShowBase):
         self.camera.reparentTo(self.render)    
 
     def add_key(self,key,function,args):
-        print(key,function,args)
         if key in self.keys:
             self.keys[key].append([function,args])
         else:

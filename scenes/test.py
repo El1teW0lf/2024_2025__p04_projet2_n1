@@ -6,7 +6,7 @@ from menus import PauseMenu, CodeMenu
 from panda3d.bullet import BulletWorld
 from panda3d.bullet import BulletPlaneShape, BulletRigidBodyNode
 from panda3d.core import Vec3,BitMask32
-from direct.showbase.ShowBaseGlobal import globalClock
+from direct.showbase.ShowBaseGlobal import globalClock,ClockObject
 from panda3d.bullet import BulletDebugNode
 from panda3d.bullet import BulletBoxShape
 from panda3d.core import CollisionRay, CollisionNode, CollisionTraverser, CollisionHandlerQueue, GeomNode
@@ -17,33 +17,34 @@ show-frame-rate-meter 1
 """
 loadPrcFileData("", configVars)
 loadPrcFileData("", "gl-version 3 2")
-
+loadPrcFileData("", "clock-mode limited")
+loadPrcFileData("", "clock-frame-rate 60")
 
 class TestWorld():
     def __init__(self,base):
 
-        self.base = base
+        self.main = base
 
-        self.base.reset()
+        self.main.reset()
 
         self.paused = False
         self.coding = False
 
         self.userExit = base.userExit
 
-        self.base.disableMouse()
+        self.main.disableMouse()
 
-        self.bullet_world = self.base.bullet_world
+        self.bullet_world = self.main.bullet_world
 
-        self.base.setBackgroundColor(0,0,0)
+        self.main.setBackgroundColor(0,0,0)
 
         self.computer_path = "assets/Mesh_Monitor_06/model.fbx"
 
-        #self.base.oobe()
+        #self.main.oobe()
 
-        self.camera = self.base.camera
-        self.loader = self.base.loader
-        self.render = self.base.render
+        self.camera = self.main.camera
+        self.loader = self.main.loader
+        self.render = self.main.render
 
         self.camera.setPos(0, 0, 0)
         self.camera.setHpr(0, 0, 0)
@@ -67,20 +68,20 @@ class TestWorld():
         bodyNP.setCollideMask(BitMask32.bit(1))
 
         self.bullet_world.attachRigidBody(bodyNP.node())
-        self.controller = PlayerController(self.base)
+        self.controller = PlayerController(self.main)
 
         script_directory = os.path.dirname(os.path.realpath(__file__))
         folder_path = os.path.join(script_directory, "test_scene_2")
 
-        self.base.camLens.setFov(90)
+        self.main.camLens.setFov(90)
         parse_json(folder_path, self.render, self.loader, "scenes/test_scene_2", self.bullet_world)
 
         props = WindowProperties()
         props.setFullscreen(True)
         #self.win.requestProperties(props)
 
-        screen_aspect_ratio = self.base.win.getProperties().getXSize() / self.base.win.getProperties().getYSize()
-        self.base.camLens.setAspectRatio(screen_aspect_ratio)
+        screen_aspect_ratio = self.main.win.getProperties().getXSize() / self.main.win.getProperties().getYSize()
+        self.main.camLens.setAspectRatio(screen_aspect_ratio)
 
         self.menu = PauseMenu(self)
         self.code_menu = CodeMenu(self)
@@ -92,10 +93,10 @@ class TestWorld():
         debugNode.showConstraints(self.show_debug_collision)
         debugNode.showBoundingBoxes(self.show_debug_collision)
         debugNode.showNormals(self.show_debug_collision)
-        debugNP = self.render.attachNewNode(debugNode)
-        debugNP.show()
+        #debugNP = self.render.attachNewNode(debugNode)
+        #debugNP.show()
 
-        self.bullet_world.setDebugNode(debugNP.node())
+       # self.bullet_world.setDebugNode(debugNP.node())
 
         self.picker_ray = CollisionRay()
         self.picker_node = CollisionNode("mouseRay")
@@ -109,20 +110,26 @@ class TestWorld():
         self.collision_traverser.addCollider(self.picker_np, self.collision_handler)
 
         # Mouse click detection
-        self.base.accept("mouse1", self.on_click)
+        self.main.accept("mouse1", self.on_click)
 
-        self.base.accept("escape", self.toggle_pause_menu)
-        self.base.taskMgr.add(self.update, 'draw_debug_world')
+        globalClock.setMode(ClockObject.MLimited)
+        globalClock.setFrameRate(60)
+
+        self.main.accept("escape", self.toggle_pause_menu)
+        self.main.taskMgr.add(self.update, 'draw_debug_world')
 
     def toggle_pause_menu(self):
-        if not self.paused:
-            self.controller.pause()
-            self.menu.show()
-            self.paused = not self.paused
+        if self.coding:
+            self.toggle_code_menu()
         else:
-            self.menu.hide()
-            self.controller.run()
-            self.paused = not self.paused
+            if not self.paused:
+                self.controller.pause()
+                self.menu.show()
+                self.paused = not self.paused
+            else:
+                self.menu.hide()
+                self.controller.run()
+                self.paused = not self.paused
 
     def toggle_code_menu(self):
         if not self.coding:
@@ -140,10 +147,10 @@ class TestWorld():
         return task.cont
     
     def on_click(self):
-        if self.base.mouseWatcherNode.hasMouse():
+        if self.main.mouseWatcherNode.hasMouse():
             # Get mouse position and set ray origin/direction
-            mpos = self.base.mouseWatcherNode.getMouse()
-            self.picker_ray.setFromLens(self.base.camNode, mpos.getX(), mpos.getY())
+            mpos = self.main.mouseWatcherNode.getMouse()
+            self.picker_ray.setFromLens(self.main.camNode, mpos.getX(), mpos.getY())
 
             # Traverse collisions
             self.collision_traverser.traverse(self.render)

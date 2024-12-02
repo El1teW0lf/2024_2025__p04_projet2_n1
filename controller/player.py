@@ -40,7 +40,7 @@ class PlayerController:
             "control": False, 
             "space": False,  
         }
-        self.mouse_sensitivity = 10
+        self.mouse_sensitivity = 100
 
         self.lock_mouse()
 
@@ -113,7 +113,7 @@ class PlayerController:
     def update_camera(self, task):
 
         velocity = Vec3(0,0,self.camera_node.get_linear_velocity().z)
-
+        start = velocity
         if not self.paused:
             dt = globalClock.getDt()
 
@@ -146,7 +146,7 @@ class PlayerController:
 
             if self.key_map["space"] and contact_under:
                 velocity += up
-                
+
         self.camera_node.setLinearVelocity(velocity)
 
         return Task.cont
