@@ -2,7 +2,7 @@ from scenes import TestWorld,MainMenu
 from direct.showbase.ShowBase import ShowBase 
 from modules import parse_json
 from panda3d.bullet import BulletWorld
-from panda3d.core import Vec3
+from panda3d.core import Vec3, WindowProperties
 import line_profiler
 
 class Main(ShowBase):
@@ -12,6 +12,9 @@ class Main(ShowBase):
         self.bullet_world.setGravity(Vec3(0, 0, -9.81))
         self.ui = {}
         self.keys = {}
+        props = WindowProperties()
+        props.setFullscreen(True)
+        self.win.requestProperties(props)
 
         self.possible_keys = [
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
