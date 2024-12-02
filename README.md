@@ -2,7 +2,8 @@
   
   Projet de NSI N°2 : FNAP
   
-![image](https://github.com/user-attachments/assets/213e901a-094b-4efc-a128-a0d799a58915)
+![image](https://github.com/user-attachments/assets/165ae079-4226-4c7f-84eb-88d104f6c3f2)
+![image](https://github.com/user-attachments/assets/c8e71f08-2f96-47b9-8bd3-5e5738a868b1)
 
   <img src="http://ForTheBadge.com/images/badges/built-with-swag.svg">
   <img src="https://forthebadge.com/images/badges/made-with-python.svg">
