@@ -4,6 +4,7 @@ import data
 from game_functions import *
 
 
+
 PARENT_URL = "http://localhost:8080"
 
 # Function to send messages to the parent
@@ -50,9 +51,8 @@ if __name__ == "__main__":
     # Step 2: Execute user code (replace this with actual input)
     user_code = """
 # User-defined code
-blinds_close("blind1")
-blinds_open("blind2")
-blinds_close("blind2")
+door_close()
+door_open()
 """
     result = execute_user_code(user_code)
 
