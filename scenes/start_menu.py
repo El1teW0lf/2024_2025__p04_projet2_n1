@@ -1,78 +1,76 @@
-from direct.gui.DirectGui import DirectButton, DirectLabel,DirectFrame, DGG
-from panda3d.core import TextNode
-
+from direct.gui.DirectGui import DirectButton, DirectLabel, DirectFrame, DGG
+from panda3d.core import TextNode, NodePath, GeomNode, Plane, CardMaker
+from panda3d.core import Texture, Vec3
 
 class MainMenu():
-    def __init__(self,base,launch_function):
+    def __init__(self, base,launch_function):
+        super().__init__()
         self.on_launch = launch_function
-        self.base = base
-        self.setup_main_menu()
+        self.main = base
+        self.main.reset()
+        self.main.disableMouse()
+        self.size_factor = 265
 
-    def setup_main_menu(self):
+        self.width = self.main.win.getXSize()
+        self.height = self.main.win.getYSize()
 
+        self.create_bg()
+        self.create_buttons()
 
-        self.aspect_ratio = self.base.getAspectRatio()
-        self.font = self.base.loader.loadFont("ui/Jellies.ttf")
+    def create_bg(self):
 
-        self.base.ui["start_menu"] = []
-
- 
-        self.frame = DirectFrame(
-            frameSize=(-self.aspect_ratio, self.aspect_ratio, -1, 1),  
-            pos=(0, 0, 0) ,
-            sortOrder=1,
-            frameTexture = "ui/bg_green.png"
-        )
-
-        self.title = DirectLabel(
-            text="Main Menu",
-            scale=0.1,
-            pos=(0, 0, 0.7),
-            text_fg=(1, 1, 1, 1),
-            text_align=TextNode.ACenter,
-            parent=self.frame,
-            text_font = self.font
-        )
+        cm = CardMaker("plane")
 
 
-        self.start_button = DirectButton(
-            scale=1, 
-           
-            relief=DGG.FLAT,
-            frameSize=(-1, 1, -0.1, 0.1),
-            pos=(0, 0, 0.2),
-            command=self.start_game,
-            parent=self.frame,
-            frameTexture = self.base.loader.loadTexture("ui/play_icon_text.png"),
-        )
-        self.settings_button = DirectButton(
-            text="Settings",
-            scale=0.08,
-            pos=(0, 0, 0),
-            command=self.show_settings,
-             parent=self.frame,
-            text_font = self.font
-        )
-        self.quit_button = DirectButton(
-            text="Quit",
-            scale=0.08,
-            pos=(0, 0, -0.2),
-            command=self.quit_game,
-            parent=self.frame,
-            text_font = self.font
-        )
+        cm.setFrame(-self.width / self.size_factor, self.width / self.size_factor, -self.height / self.size_factor, self.height / self.size_factor) 
+        plane = self.main.render.attachNewNode(cm.generate())
+        plane.setColor(1, 1, 1, 1)  
 
-        self.base.ui["start_menu"].append(self.frame)
+        texture = self.main.loader.loadTexture("ui/bg_green.png") 
+        plane.setTexture(texture)
+
+        
+        plane.setPos(0, 10, 0)  
+        plane.lookAt(self.main.camera)
+        plane.setHpr(plane.getH() + 180, plane.getP(), plane.getR())
+
+    def create_buttons(self):
+        cm = CardMaker("plane")
+        cm.setFrame(-273 / self.size_factor / 2, 273 / self.size_factor / 2, -81 / self.size_factor / 2, 81 / self.size_factor / 2) 
+        plane = self.main.render.attachNewNode(cm.generate())
+        plane.setColor(1, 1, 1, 1)  
+        plane.setTag("UI", "start_play_button")
+
+        texture = self.main.loader.loadTexture("ui/play_icon_text.png") 
+        plane.setTexture(texture)
+        plane.setPos(0, 7, 0)  
+        plane.lookAt(self.main.camera)
+        plane.setHpr(plane.getH() + 180, plane.getP(), plane.getR())
+        plane.setPos(-2, 7, 0)  
+
+
+        cm = CardMaker("plane")
+        cm.setFrame(-437 / self.size_factor / 2, 437 / self.size_factor / 2, -81 / self.size_factor / 2, 81 / self.size_factor / 2) 
+        plane = self.main.render.attachNewNode(cm.generate())
+        plane.setColor(1, 1, 1, 1)  
+        plane.setTag("UI", "start_play_button")
+
+        texture = self.main.loader.loadTexture("ui/settings_icon_text.png") 
+        plane.setTexture(texture)
+        plane.setPos(0, 7, 0) 
+        plane.lookAt(self.main.camera)
+        plane.setHpr(plane.getH() + 180, plane.getP(), plane.getR())
+        plane.setPos(-2, 7, -0.2)  
+
 
     def start_game(self):
         print("Start Game clicked!")
         self.on_launch()
-
 
     def show_settings(self):
         print("Settings clicked!")
 
     def quit_game(self):
         print("Quit clicked!")
-        self.base.userExit()
+        self.userExit()
 
