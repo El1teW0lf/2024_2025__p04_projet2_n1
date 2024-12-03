@@ -1,3 +1,4 @@
+
 from panda3d.core import (
     BitMask32, WindowProperties, TextNode
 )
@@ -9,7 +10,18 @@ from panda3d.core import NodePath, Point3, Vec3, Quat
 from direct.gui.DirectGui import OnscreenText
 from direct.task import Task
 from direct.showbase.ShowBaseGlobal import globalClock
+import time
 
+def profile_function(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        elapsed_time = (time.time() - start_time) * 1000 
+
+        if elapsed_time > 10:
+            print(f"Function '{func.__name__}' executed in {elapsed_time:.3f} ms")
+        return result
+    return wrapper
 
 class PlayerController:
     def __init__(self, base):
@@ -46,6 +58,7 @@ class PlayerController:
         self.base.taskMgr.add(self.update_camera_direction, "UpdateCameraDirection")
         self.base.taskMgr.add(self.update_info_text, "UpdateInfoText")
 
+    @profile_function
     def init_bullet(self):
 
         # Create a collision shape and node for the camera
@@ -72,14 +85,14 @@ class PlayerController:
 
         # Add the camera node to the Bullet world
         self.base.bullet_world.attachRigidBody(self.camera_node)
-
+    @profile_function
     def lock_mouse(self):
         props = WindowProperties()
         props.setCursorHidden(True)
         props.setMouseMode(WindowProperties.M_absolute)
         self.base.win.requestProperties(props)
         self.base.win.movePointer(0, self.base.win.getXSize() // 2, self.base.win.getYSize() // 2)
-
+    @profile_function
     def accept_inputs(self):
         self.base.add_key("z", self.update_key_map, ["z", True])
         self.base.add_key("z-up", self.update_key_map, ["z", False])
@@ -93,10 +106,10 @@ class PlayerController:
         self.base.add_key("control-up", self.update_key_map, ["control", False])
         self.base.add_key("space", self.update_key_map, ["space", True])
         self.base.add_key("space-up", self.update_key_map, ["space", False])
-
+    @profile_function
     def update_key_map(self, key, state):
         self.key_map[key] = state
-
+    @profile_function
     def update_camera(self, task):
 
         velocity = Vec3(0,0,self.camera_node.get_linear_velocity().z)
@@ -137,7 +150,7 @@ class PlayerController:
         self.camera_node.setLinearVelocity(velocity)
 
         return Task.cont
-
+    @profile_function
     def update_camera_direction(self, task):
         if self.base.mouseWatcherNode.hasMouse() and (not self.paused and not self.mouse_free):
             x = self.base.mouseWatcherNode.getMouseX()
@@ -153,7 +166,7 @@ class PlayerController:
             self.base.win.movePointer(0, self.base.win.getXSize() // 2, self.base.win.getYSize() // 2)
 
         return Task.cont
-
+    @profile_function
     def update_info_text(self, task):
         pos = self.camera_np.getPos()
         hpr = self.base.camera.getHpr()
@@ -162,25 +175,25 @@ class PlayerController:
             f"Direction: h={hpr.x:.2f}, p={hpr.y:.2f}, r={hpr.z:.2f}"
         )
         return Task.cont
-
+    @profile_function
     def pause(self):
         self.paused = True
         props = WindowProperties()
         props.setCursorHidden(not self.paused)
         self.base.win.requestProperties(props)
-
+    @profile_function
     def run(self):
         self.paused = False
         props = WindowProperties()
         props.setCursorHidden(not self.paused)
         self.base.win.requestProperties(props)
-
+    @profile_function
     def free_mouse(self):
         self.mouse_free = True
         props = WindowProperties()
         props.setCursorHidden(not self.mouse_free)
         self.base.win.requestProperties(props)
-
+    @profile_function
     def back_mouse(self):
         self.mouse_free = False 
         props = WindowProperties()

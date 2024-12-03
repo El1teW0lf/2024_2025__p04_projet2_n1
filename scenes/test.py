@@ -1,5 +1,5 @@
 from panda3d.core import loadPrcFileData, WindowProperties
-from controller import PlayerController
+from controller import PlayerController,FreeCameraController
 from modules import parse_json
 import os
 from menus import PauseMenu, CodeMenu
@@ -35,6 +35,7 @@ class TestWorld():
         self.main.disableMouse()
 
         self.bullet_world = self.main.bullet_world
+        self.bullet_world.setGravity(Vec3(0, 0, -9.81))
 
         self.main.setBackgroundColor(0,0,0)
 
@@ -76,9 +77,6 @@ class TestWorld():
         self.main.camLens.setFov(90)
         parse_json(folder_path, self.render, self.loader, "scenes/test_scene_2", self.bullet_world)
 
-        props = WindowProperties()
-        props.setFullscreen(True)
-        #self.win.requestProperties(props)
 
         screen_aspect_ratio = self.main.win.getProperties().getXSize() / self.main.win.getProperties().getYSize()
         self.main.camLens.setAspectRatio(screen_aspect_ratio)
@@ -86,17 +84,17 @@ class TestWorld():
         self.menu = PauseMenu(self)
         self.code_menu = CodeMenu(self)
 
-        self.show_debug_collision = False
+        self.show_debug_collision = True
 
         debugNode = BulletDebugNode('Debug')
         debugNode.showWireframe(self.show_debug_collision)
         debugNode.showConstraints(self.show_debug_collision)
         debugNode.showBoundingBoxes(self.show_debug_collision)
         debugNode.showNormals(self.show_debug_collision)
-        #debugNP = self.render.attachNewNode(debugNode)
-        #debugNP.show()
+        debugNP = self.render.attachNewNode(debugNode)
+        debugNP.show()
 
-       # self.bullet_world.setDebugNode(debugNP.node())
+        self.bullet_world.setDebugNode(debugNP.node())
 
         self.picker_ray = CollisionRay()
         self.picker_node = CollisionNode("mouseRay")
