@@ -1,5 +1,5 @@
 from direct.gui.DirectGui import DirectFrame, DirectButton, OnscreenText
-from panda3d.core import TextNode
+from panda3d.core import TextNode, TransparencyAttrib
 
 
 class PauseMenu:
@@ -44,11 +44,13 @@ class PauseMenu:
 
         # Resume button
         self.resume_button = DirectButton(
-            text="Resume",
-            scale=0.07,
+            image = "menus/assets/resume_button.png",
+            text="",
+            scale= (0.5, 1.2, 0.15),
             command=self.base.toggle_pause_menu,  # Toggles the menu visibility
             parent=self.menu_frame,
             pos=(0, 0, 0.1),
+            
         )
 
         # Quit button
@@ -64,6 +66,8 @@ class PauseMenu:
         """Show the pause menu and background."""
         self.background_frame.show()
         self.menu_frame.show()
+        self.resume_button.setColor(1, 1, 1, 0)
+        self.resume_button.setTransparency(TransparencyAttrib.MAlpha)
 
     def hide(self):
         """Hide the pause menu and background."""
