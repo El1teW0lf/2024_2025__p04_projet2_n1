@@ -11,14 +11,7 @@ from panda3d.bullet import BulletDebugNode
 from panda3d.bullet import BulletBoxShape
 from panda3d.core import CollisionRay, CollisionNode, CollisionTraverser, CollisionHandlerQueue, GeomNode
 
-configVars = """
-win-size 1280 720
-show-frame-rate-meter 1
-"""
-loadPrcFileData("", configVars)
-loadPrcFileData("", "gl-version 3 2")
-loadPrcFileData("", "clock-mode limited")
-loadPrcFileData("", "clock-frame-rate 60")
+
 
 class TestWorld():
     def __init__(self,base):

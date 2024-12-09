@@ -4,6 +4,7 @@ from modules import parse_json
 from panda3d.bullet import BulletWorld
 from panda3d.core import Vec3, WindowProperties
 import line_profiler
+from panda3d.core import loadPrcFileData, WindowProperties
 
 class Main(ShowBase):
     def __init__(self):
@@ -15,6 +16,15 @@ class Main(ShowBase):
         props = WindowProperties()
         props.setFullscreen(True)
         self.win.requestProperties(props)
+
+        configVars = """
+        win-size 1280 720
+        show-frame-rate-meter 1
+        """
+        loadPrcFileData("", configVars)
+        loadPrcFileData("", "gl-version 3 2")
+        loadPrcFileData("", "clock-mode limited")
+        loadPrcFileData("", "clock-frame-rate 60")
 
         self.possible_keys = [
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
