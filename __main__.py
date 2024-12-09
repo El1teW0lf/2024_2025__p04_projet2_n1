@@ -18,7 +18,7 @@ class Main(ShowBase):
         self.win.requestProperties(props)
 
         configVars = """
-        win-size 1280 720
+        win-size 1920 1080
         show-frame-rate-meter 1
         """
         loadPrcFileData("", configVars)
