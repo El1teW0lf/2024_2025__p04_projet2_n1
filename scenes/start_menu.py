@@ -8,6 +8,7 @@ from panda3d.bullet import BulletTriangleMesh, BulletRigidBodyNode, BulletTriang
 from panda3d.bullet import BulletDebugNode
 from panda3d.core import CollisionNode, CollisionBox, CollisionHandlerQueue, CollisionTraverser
 from panda3d.core import TransparencyAttrib, CardMaker
+from math import sin, radians
 
 class MainMenu():
     def __init__(self, base,launch_function):
@@ -21,7 +22,6 @@ class MainMenu():
         self.width = self.main.win.getXSize()
         self.height = self.main.win.getYSize()
         self.bullet_world = self.main.bullet_world
-
 
         self.show_debug_collision = True
 
@@ -59,6 +59,9 @@ class MainMenu():
         texture.setMagfilter(Texture.FTLinear)
         self.start_logo.setTexture(texture)
         self.start_logo.setColor(1, 1, 1, 1)  
+
+        self.angle = 0
+        self.main.taskMgr.add(self.rotate_with_sine, "RotateWithSine")
 
     def create_bg(self):
 
@@ -147,3 +150,14 @@ class MainMenu():
                 picked_obj = picked_obj.findNetTag("UI")
                 if not picked_obj.isEmpty():
                     self.handle_button_press(picked_obj.getTag("UI"))
+    
+    def rotate_with_sine(self, task):
+        self.angle += 2
+        if self.angle >= 360:
+            self.angle = 0 
+
+        sine_value = sin(radians(self.angle)) * 20 
+        
+        self.start_logo.setHpr(0, 0, sine_value)
+        
+        return task.cont

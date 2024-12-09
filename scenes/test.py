@@ -12,7 +12,6 @@ from panda3d.bullet import BulletBoxShape
 from panda3d.core import CollisionRay, CollisionNode, CollisionTraverser, CollisionHandlerQueue, GeomNode
 
 
-
 class TestWorld():
     def __init__(self,base):
 
