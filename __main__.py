@@ -14,7 +14,7 @@ class Main(ShowBase):
         self.ui = {}
         self.keys = {}
         props = WindowProperties()
-        props.setFullscreen(True)
+        props.setFullscreen(False)
         self.win.requestProperties(props)
 
         configVars = """

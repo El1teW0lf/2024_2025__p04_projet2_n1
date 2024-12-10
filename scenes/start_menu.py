@@ -23,7 +23,7 @@ class MainMenu():
         self.height = self.main.win.getYSize()
         self.bullet_world = self.main.bullet_world
 
-        self.show_debug_collision = True
+        self.show_debug_collision = False
 
         debugNode = BulletDebugNode('Debug')
         debugNode.showWireframe(self.show_debug_collision)
@@ -62,6 +62,7 @@ class MainMenu():
 
         self.angle = 0
         self.main.taskMgr.add(self.rotate_with_sine, "RotateWithSine")
+        self.main.taskMgr.add(self.check_touched,"CheckMouseTouched")
 
     def create_bg(self):
 
@@ -136,6 +137,22 @@ class MainMenu():
         elif tag == "start_quit_button":
             self.quit_game()
 
+    def check_touched(self,task):
+        if self.main.mouseWatcherNode.hasMouse():
+            mpos = self.main.mouseWatcherNode.getMouse()
+            self.picker_ray.setFromLens(self.main.camNode, mpos.getX(), mpos.getY())
+
+            self.collision_traverser.traverse(self.main.render)
+
+            if self.collision_handler.getNumEntries() > 0:
+                self.collision_handler.sortEntries()
+                picked_obj = self.collision_handler.getEntry(0).getIntoNodePath()
+
+                picked_obj = picked_obj.findNetTag("UI")
+                if not picked_obj.isEmpty():
+                    print(picked_obj.getTag("UI"))
+
+        return task.cont
     def on_click(self):
         if self.main.mouseWatcherNode.hasMouse():
             mpos = self.main.mouseWatcherNode.getMouse()
