@@ -14,17 +14,23 @@ class Main(ShowBase):
         self.ui = {}
         self.keys = {}
         props = WindowProperties()
-        props.setFullscreen(True)
+        props.setFullscreen(False)
         self.win.requestProperties(props)
 
         configVars = """
-        win-size 1920 1080
         show-frame-rate-meter 1
         """
         loadPrcFileData("", configVars)
         loadPrcFileData("", "gl-version 3 2")
         loadPrcFileData("", "clock-mode limited")
         loadPrcFileData("", "clock-frame-rate 60")
+
+        w, h = 1980, 1080 
+
+        props = WindowProperties() 
+        props.setSize(w, h) 
+
+        self.win.requestProperties(props) 
 
         self.possible_keys = [
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",

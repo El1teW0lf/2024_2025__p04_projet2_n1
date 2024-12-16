@@ -19,7 +19,7 @@ void main() {
     float cbrd = mod(floor(cord.x) + floor(cord.y), 2.0);
     col += col2 * cbrd;
 
-    col = round(col * ColorDepth) / ColorDepth;
+    col = round(col * ColorDepth) / ColorDepth ;
 
     float fogFactor = 1.0 - exp(-FogDensity * v_depth);
     vec3 foggedColor = mix(col.rgb, FogColor, fogFactor);
