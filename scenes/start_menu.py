@@ -19,6 +19,9 @@ class MainMenu():
         self.main.reset()
         self.main.disableMouse()
         self.size_factor = 265*1.2
+        self.delete = False
+
+        self.main.scenes["main_menu"] = self
 
         props = WindowProperties()
         props.setCursorHidden(True)
@@ -74,6 +77,8 @@ class MainMenu():
             image_scale=0.05
         )
         self.custom_cursor.setTransparency(TransparencyAttrib.M_alpha)
+
+        self.main.ui["cursor"] = self.custom_cursor
 
         self.angle = 0
         self.main.taskMgr.add(self.rotate_with_sine, "RotateWithSine")
@@ -157,6 +162,8 @@ class MainMenu():
             self.quit_game()
 
     def check_touched(self,task):
+        if self.delete:
+            return task.done
         if self.main.mouseWatcherNode.hasMouse():
             mpos = self.main.mouseWatcherNode.getMouse()
             self.picker_ray.setFromLens(self.main.camNode, mpos.getX(), mpos.getY())
@@ -178,6 +185,7 @@ class MainMenu():
             else:
                 self.custom_cursor["image"] = self.cursor_image
 
+
         return task.cont
     def on_click(self):
         if self.main.mouseWatcherNode.hasMouse():
@@ -196,13 +204,19 @@ class MainMenu():
     
 
     def update_cursor(self,task):
+        if self.delete:
+            return task.done
         if self.main.mouseWatcherNode.hasMouse():
             mouse_x = self.main.mouseWatcherNode.getMouseX()* (16/8.8)
             mouse_y = self.main.mouseWatcherNode.getMouseY()
             self.custom_cursor.setPos(mouse_x, 0, mouse_y)
+        
+
         return task.cont
 
     def rotate_with_sine(self, task):
+        if self.delete:
+            return task.done
         self.angle += 2
         if self.angle >= 360:
             self.angle = 0 
@@ -210,5 +224,5 @@ class MainMenu():
         sine_value = sin(radians(self.angle)) * 20 
         
         self.start_logo.setHpr(0, 0, sine_value)
-        
+
         return task.cont

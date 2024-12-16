@@ -13,6 +13,7 @@ class Main(ShowBase):
         self.bullet_world.setGravity(Vec3(0, 0, -9.81))
         self.ui = {}
         self.keys = {}
+        self.scenes = {}
         props = WindowProperties()
         props.setFullscreen(False)
         self.win.requestProperties(props)
@@ -59,6 +60,8 @@ class Main(ShowBase):
         TestWorld(self)
 
     def reset(self):
+        for i in self.scenes:
+            self.scenes[i].delete = True
         self.clear_all_ui()
         self.render.getChildren().detach()
         self.camera.reparentTo(self.render)    
