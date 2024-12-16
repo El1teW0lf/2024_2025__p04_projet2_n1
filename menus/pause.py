@@ -1,68 +1,13 @@
 from direct.gui.DirectGui import DirectFrame, DirectButton
 from panda3d.core import TransparencyAttrib
-from direct.gui.DirectGui import DirectButton, DirectLabel, DirectFrame, DGG
-from panda3d.core import TextNode, NodePath, GeomNode, Plane, CardMaker
-from panda3d.core import Texture, Vec3
-from panda3d.core import Shader
-from panda3d.core import TransparencyAttrib
-from panda3d.core import CollisionRay, CollisionNode, CollisionTraverser, CollisionHandlerQueue, GeomNode
-from panda3d.bullet import BulletTriangleMesh, BulletRigidBodyNode, BulletTriangleMeshShape, BulletBoxShape
-from panda3d.bullet import BulletDebugNode
-from panda3d.core import CollisionNode, CollisionBox, CollisionHandlerQueue, CollisionTraverser
-from panda3d.core import TransparencyAttrib, CardMaker
 
-class PauseMenu():
-    def __init__(self, base, launch_function):
-        super().__init__()
-        self.on_launch = launch_function
-        self.main = base
-        self.main.reset()
-        self.main.disableMouse()
-        self.size_factor = 256 * 1.2
 
-        self.width = self.main.win.getXsize()
-        self.height = self.main.win.getYsize()
-        self.bullet_world = self.main.bullet_world
-
-        self.show_debug_collision = True
-
-        debugNode = BulletDebugNode('Debug')
-        debugNode.showWireframe(self.show_debug_collision)
-        debugNode.showConstraints(self.show_debug_collision)
-        debugNode.showBoundingBoxes(self.show_debug_collision)
-        debugNode.showNormals(self.show_debug_collision)
-        debugNP = self.main.render.attachNewNode(debugNode)
-        debugNP.show()
+class PauseMenu:
+    def __init__(self, base):
+        self.base = base
 
         # Get the aspect ratio to calculate fullscreen coordinates
         aspect_ratio = base.main.getAspectRatio()
-
-        self.bullet_world.setDebugNode(debugNP.node())
-
-        self.picker_ray = CollisionRay()
-        self.picker_node = CollisionNode("mouseRay")
-        self.picker_node.addSolid(self.picker_ray)
-        self.picker_node.setFromCollideMask(GeomNode.getDefaultCollideMask())  # Detect all geometry
-        self.picker_np = self.main.camera.attachNewNode(self.picker_node)
-
-        # Collision traverser and handler
-        self.collision_traverser = CollisionTraverser()
-        self.collision_handler = CollisionHandlerQueue()
-        self.collision_traverser.addCollider(self.picker_np, self.collision_handler)
-
-        # Mouse click detection
-        self.main.accept("mouse1", self.on_click)
-
-        self.create_bg()
-        self.start_play_button = self.create_button("start_play_button", -1.45, 6.75, 0.05, 280 / self.size_factor, 90 / self.size_factor)
-        self.start_settings_button = self.create_button("start_settings_button", -1.2, 6.75, -0.4, 450 / self.size_factor, 90 / self.size_factor)
-        self.start_quit_button = self.create_button("start_quit_button", -1.45, 6.75, -0.85, 280 / self.size_factor, 90 / self.size_factor)
-        self.start_logo = self.create_button("start_logo", -1.0, 6.75, 1, 810 / self.size_factor, 340 / self.size_factor)
-        texture = self.main.loader.loadTexture("ui/nice_logo.png")
-        texture.setMinfilter(Texture.FTLinear) 
-        texture.setMagfilter(Texture.FTLinear)
-        self.start_logo.setTexture(texture)
-        self.start_logo.setColor(1, 1, 1, 1)  
 
         # Fullscreen background frame (hidden initially)
         self.background_frame = DirectFrame(

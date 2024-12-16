@@ -131,6 +131,8 @@ class TestWorld():
             self.controller.run()
             self.coding = not self.coding
 
+
+
     def update(self,task):
         if not self.paused and not self.coding:
             self.bullet_world.doPhysics(globalClock.getDt())
