@@ -1,6 +1,12 @@
 from direct.gui.DirectGui import DirectFrame, DirectButton, OnscreenText
 from panda3d.core import TextNode, LVector4f
 from syntax.parse import parse  # Assuming this module exists and is functional
+import multiprocessing
+import time
+
+
+class TimeoutException(Exception):
+    pass
 
 class CodeMenu:
     def __init__(self, base):
@@ -86,13 +92,7 @@ class CodeMenu:
         y_start = 0.5
         line_spacing = 0.1
         line_count = 0
-<<<<<<< HEAD
-        offset_x = 0.1
-        space_width = 0.05  # Set a fixed width for spaces
-
-=======
         offset_x = 0
->>>>>>> c4d42b8a77131ab496744442be2dce0930b1e626
         for i, (text, color_hex) in enumerate(code_lines):
             r, g, b = self.hex_to_rgb(color_hex)
             color = LVector4f(r, g, b, 1.0)
@@ -120,30 +120,46 @@ class CodeMenu:
         hex_color = hex_color.lstrip("#")
         return tuple(int(hex_color[i:i + 2], 16) / 255.0 for i in (0, 2, 4))
 
-    def run_code(self):
-        # Combine the content list into a single code string
+    def run_code(self, timeout=5):
         code_string = "".join(self.content)
         print("Running Code:")
-        print(code_string)  # Debug output
+        print(code_string)  
 
-        try:
-            # Capture the output using a custom print function
-            output = []
-            exec(
-                code_string,
-                {
-                    "__builtins__": {
-                        "range": range, "sum": sum, "print": lambda *args: output.append(" ".join(map(str, args))), "len": len
+        def execute_code(output_queue):
+            try:
+                output = []
+                exec(
+                    code_string,
+                    {
+                        "__builtins__": {
+                            "range": range,
+                            "sum": sum,
+                            "print": lambda *args: output.append(" ".join(map(str, args))),
+                            "len": len
+                        }
                     }
-                }
-            )
-            self.result.setText("\n".join(output))
-        except Exception as e:
-            self.result.setText(f"Error: {e}")
+                )
+                output_queue.put("\n".join(output))
+            except Exception as e:
+                output_queue.put(f"Error: {e}")
 
-        # Switch to the terminal frame
-        self.show_terminal()
-        self.visible = False  # Ensure we know the IDE is hidden
+        output_queue = multiprocessing.Queue()
+        print("Created Process queue")
+
+        process = multiprocessing.Process(target=execute_code, args=(output_queue,))
+        process.start()
+        print("Started Child thread")
+
+        process.join(timeout)
+        
+        if process.is_alive():
+            process.terminate()  
+            process.join()  
+            self.result.setText("Error: Execution timed out!")
+        else:
+            if not output_queue.empty():
+                output = output_queue.get()
+                self.result.setText(output)
 
     def show(self):
         """Show the IDE frame and prepare for code input."""
