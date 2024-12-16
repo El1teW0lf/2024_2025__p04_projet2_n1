@@ -23,14 +23,22 @@ class CodeMenu:
         # Terminal Frame
         self.terminal_frame = DirectFrame(
             frameColor=(0.1, 0.1, 0.1, 1),
-            frameSize=(-1.2, 1.2, -0.8, 0),
-            pos=(0, 0, -0.8)
+            frameSize=(-1.2, 1.2, -0.8, 0.8),
+            pos=(0, 0, 0)
+        )
+        self.terminal_title = OnscreenText(
+            text="Result",
+            parent=self.terminal_frame,
+            scale=0.1,
+            pos=(0, 0.65),
+            fg=(1, 1, 1, 1),
+            align=TextNode.ACenter
         )
         self.result = OnscreenText(
             text="",
             parent=self.terminal_frame,
             scale=0.05,
-            pos=(-1.15, 0.7),
+            pos=(-1.0, 0.5),
             align=TextNode.ALeft,
             fg=(1, 1, 1, 1)
         )
@@ -39,7 +47,7 @@ class CodeMenu:
             text="Back to IDE",
             parent=self.terminal_frame,
             scale=0.1,
-            pos=(1.0, 0, -0.75),
+            pos=(0.1, 0, -0.7),
             command=self.show
         )
 
@@ -79,32 +87,26 @@ class CodeMenu:
         line_spacing = 0.1
         line_count = 0
         offset_x = 0
-        space_width = 0.05  # Set a fixed width for spaces
-
         for i, (text, color_hex) in enumerate(code_lines):
             r, g, b = self.hex_to_rgb(color_hex)
             color = LVector4f(r, g, b, 1.0)
             text_node = TextNode(f"line-{i}")
             text_node.setText(text)
             text_node.setTextColor(color)
-
-            # Create a new text node parented to the IDE frame
-            text_np = self.ide_frame.attachNewNode(text_node)
+            text_np = self.title.attachNewNode(text_node)
             text_np.setScale(0.07)
-            text_np.setPos(-1.15 + offset_x, 0, y_start - line_count * line_spacing)
+            text_np.setPos(-1.0 + offset_x, 0, y_start - line_count * line_spacing)
 
-            # Adjust line count and offset for positioning
             if text == "\n":
                 line_count += 1
                 offset_x = 0
-            elif text == " ":
-                offset_x += space_width  # Use a fixed space width for spaces
             else:
-                offset_x += len(text) * 0.05  # Adjust horizontal offset based on text length
+                offset_x += text_node.getWidth() * text_np.getScale()[0]
 
             text_elements.append(text_np)
 
         return text_elements
+
 
 
 
@@ -134,8 +136,7 @@ class CodeMenu:
             self.result.setText(f"Error: {e}")
 
         # Switch to the terminal frame
-        self.ide_frame.hide()
-        self.terminal_frame.show()
+        self.show_terminal()
         self.visible = False  # Ensure we know the IDE is hidden
 
     def show(self):
@@ -150,7 +151,6 @@ class CodeMenu:
         self.visible = False
         self.ide_frame.hide()
         self.terminal_frame.hide()
-
 
     def on_key_press(self, key):
                 
