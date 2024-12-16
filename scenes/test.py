@@ -76,7 +76,7 @@ class TestWorld():
         self.menu = PauseMenu(self)
         self.code_menu = CodeMenu(self)
 
-        self.show_debug_collision = True
+        self.show_debug_collision = False
 
         debugNode = BulletDebugNode('Debug')
         debugNode.showWireframe(self.show_debug_collision)
