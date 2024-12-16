@@ -78,7 +78,7 @@ class CodeMenu:
         y_start = 0.5
         line_spacing = 0.1
         line_count = 0
-        offset_x = 0
+        offset_x = 0.1
         space_width = 0.05  # Set a fixed width for spaces
 
         for i, (text, color_hex) in enumerate(code_lines):

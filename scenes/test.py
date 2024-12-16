@@ -61,7 +61,7 @@ class TestWorld():
         bodyNP.setCollideMask(BitMask32.bit(1))
 
         self.bullet_world.attachRigidBody(bodyNP.node())
-        self.controller = PlayerController(self.main)
+        self.controller = FreeCameraController(self.main)
 
         script_directory = os.path.dirname(os.path.realpath(__file__))
         folder_path = os.path.join(script_directory, "test_scene_2")
