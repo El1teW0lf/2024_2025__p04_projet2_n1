@@ -41,6 +41,9 @@ class CodeMenu:
         # Initialize content and UI elements
         self.content = []
         self.elements = []
+        self.base.main.accept('shift', self.on_shift_press)  # Listen for shift press
+        self.base.main.accept('shift-up', self.on_shift_release)  # Listen for shift release
+        self.is_shift_pressed = False
 
         # Create the main frame for the IDE
         self.ide_frame = DirectFrame(
@@ -104,6 +107,14 @@ class CodeMenu:
         self.ide_frame.hide()
         self.terminal_frame.hide()
         self.visible = False
+
+    def on_shift_press(self):
+        # Set the flag when Shift is pressed
+        self.is_shift_pressed = True
+
+    def on_shift_release(self):
+        # Reset the flag when Shift is released
+        self.is_shift_pressed = False
 
     def clear_code_text(self):
         for element in self.elements:
@@ -197,6 +208,8 @@ class CodeMenu:
         big_chars=["\n","\t"," "]
         print(key)
         if self.visible:
+            if self.is_shift_pressed and len(key) == 1:
+                self.content.append(key.upper())
             if len(key) == 1:
                 self.content.append(key)
             elif key in big_keys:
