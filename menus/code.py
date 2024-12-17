@@ -79,7 +79,7 @@ class CodeMenu:
             text="Back to IDE",
             parent=self.terminal_frame,
             scale=0.1,
-            pos=(0.1, 0, -0.7),
+            pos=(0, 0, -0.7),
             command=self.show
         )
 
@@ -100,7 +100,7 @@ class CodeMenu:
             text="Run",
             parent=self.ide_frame,
             scale=0.1,
-            pos=(0.1, 0, -0.7),
+            pos=(0, 0, -0.7),
             command=self.run_code
         )
 
