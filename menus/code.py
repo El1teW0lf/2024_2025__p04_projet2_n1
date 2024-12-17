@@ -3,10 +3,33 @@ from panda3d.core import TextNode, LVector4f
 from syntax.parse import parse  # Assuming this module exists and is functional
 import multiprocessing
 import time
+import threading
+import queue
 
+def execute_code(code_string, output_queue):
+    try:
+        output = []
+        exec(
+            code_string,
+            {
+                "__builtins__": {
+                    "range": range,
+                    "sum": sum,
+                    "print": lambda *args: output.append(" ".join(map(str, args))),
+                    "len": len
+                }
+            }
+        )
+        output_queue.put("\n".join(output))
+    except Exception as e:
+        output_queue.put(f"Error: {e}")
 
 class TimeoutException(Exception):
     pass
+
+class CodeExecutor:
+    def __init__(self):
+        self.output = []
 
 class CodeMenu:
     def __init__(self, base):
@@ -120,46 +143,40 @@ class CodeMenu:
         hex_color = hex_color.lstrip("#")
         return tuple(int(hex_color[i:i + 2], 16) / 255.0 for i in (0, 2, 4))
 
+
     def run_code(self, timeout=5):
         code_string = "".join(self.content)
         print("Running Code:")
-        print(code_string)  
+        print(code_string)
 
-        def execute_code(output_queue):
-            try:
-                output = []
-                exec(
-                    code_string,
-                    {
-                        "__builtins__": {
-                            "range": range,
-                            "sum": sum,
-                            "print": lambda *args: output.append(" ".join(map(str, args))),
-                            "len": len
-                        }
-                    }
-                )
-                output_queue.put("\n".join(output))
-            except Exception as e:
-                output_queue.put(f"Error: {e}")
+        # Use multiprocessing to ensure safe timeout handling
+        manager = multiprocessing.Manager()
+        output_queue = manager.Queue()
 
-        output_queue = multiprocessing.Queue()
-        print("Created Process queue")
-
-        process = multiprocessing.Process(target=execute_code, args=(output_queue,))
+        # Start execution in a separate process
+        process = multiprocessing.Process(target=execute_code, args=(code_string,output_queue,))
         process.start()
-        print("Started Child thread")
+        print("Started Child process")
 
+        # Wait for the process to complete or timeout
         process.join(timeout)
-        
+
         if process.is_alive():
-            process.terminate()  
-            process.join()  
+            print("Process is still alive, timeout occurred.")
+            process.terminate()  # Forcefully terminate the process
+            process.join()  # Ensure process cleanup
             self.result.setText("Error: Execution timed out!")
         else:
             if not output_queue.empty():
                 output = output_queue.get()
+                print(output)
                 self.result.setText(output)
+            else:
+                self.result.setText("Error: No output produced.")
+
+            
+        self.show_terminal()
+
 
     def show(self):
         """Show the IDE frame and prepare for code input."""
